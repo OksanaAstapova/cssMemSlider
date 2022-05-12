@@ -1,0 +1,153 @@
+body{
+    background: #ddd;
+}
+.wrapper {
+	height: 90vh;
+    margin: 2% auto 0;
+	width: 85vw;
+    display: flex;
+    flex-direction: column;
+    gap: 4%;
+}
+
+.wrapper > input {
+	display: none;
+}
+
+.slider {
+	background-color: #ddd;
+	height: inherit;
+	overflow: hidden;
+	position: relative;
+	width: inherit;
+	box-shadow: 1em 1em 1em rgba(60, 59, 59, 0.516);
+    border-radius: 3%;
+
+}
+ .captions{
+    display: flex;
+    align-items: center;
+	overflow: hidden;
+	width: 35vw;
+    height: inherit;
+    font-size: 1.5em;
+    font-family: "Century Gothic", sans-serif;
+ }
+
+ .text{
+    height: inherit;
+	position: absolute;
+	width: inherit;
+    z-index: 0;
+	transform: scale(1.5);
+	transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+	opacity: 0;
+
+ }
+.slides {
+	height: inherit;
+	position: absolute;
+	width: inherit;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 3%;
+	transform: scale(1.5);
+	transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+	z-index: 0;
+
+}
+
+.slide1 { background-image: url(./assets/1.jpg); }
+.slide2 { background-image: url(./assets/2.jpg); }
+.slide3 { background-image: url(./assets/3.jpg); }
+.slide4 { background-image: url(./assets/4.jpg); }
+.slide5 { background-image: url(./assets/5.jpg); }
+.slide6 { background-image: url(./assets/6.jpg); }
+
+
+.controls {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.labels{
+    width: 40vw;
+    display: flex;
+    place-content: center flex-end;
+}
+
+.button {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	border-radius: 50%;
+	transition: background ease-in-out 1s;
+	padding: 2%;
+
+}
+
+.wrapper label:hover .switcher{
+    box-shadow: 0 0 2em rgba(251, 179, 245, 0.875);
+	background: white;
+}
+
+#slide1:checked ~ .controls .switcher1,
+#slide2:checked ~ .controls .switcher2,
+#slide3:checked ~ .controls .switcher3,
+#slide4:checked ~ .controls .switcher4,
+#slide5:checked ~ .controls .switcher5,
+#slide6:checked ~ .controls .switcher6{
+	background: rgba(227, 40, 168, 0.792);
+    
+}
+.switcher {
+	border: 2px solid rgb(13, 13, 13);
+    content: " ";
+    display: block;
+    width: 1em;
+	height: 1em;
+    border-radius: 50%;
+	transition: background ease-in-out 1s;
+
+} 
+
+
+#slide1:checked ~ .slider > .slide1,
+#slide2:checked ~ .slider > .slide2,
+#slide3:checked ~ .slider > .slide3,
+#slide4:checked ~ .slider > .slide4,
+#slide5:checked ~ .slider > .slide5, 
+#slide6:checked ~ .slider > .slide6{
+	opacity: 1;
+	z-index: 1;
+	transform: scale(1);
+}
+
+#slide1:checked ~ .controls .captions > .text1,
+#slide2:checked ~ .controls .captions > .text2,
+#slide3:checked ~ .controls .captions > .text3,
+#slide4:checked ~ .controls .captions > .text4, 
+#slide5:checked ~ .controls .captions > .text5,
+#slide6:checked ~ .controls .captions > .text6{
+	opacity: 1;
+	z-index: 1;
+	transform: scale(1);
+}
+
+@media (max-width: 767px) {
+	.controls{
+		flex-direction: column;
+		gap: 4vh;
+		;
+	}
+
+	.labels{
+		margin: 0 auto;
+		place-content: center;
+	}
+
+
+}
+	
